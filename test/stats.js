@@ -75,6 +75,10 @@ describe('Chai Stats', function () {
       (function () {
         assert.deepAlmostEqual([4.5678, 5.5678, 6.5678], [4.56789, 5.56789, 6.56789]);
       }).should.throw(chai.AssertionError, "expected [ 4.5678, 5.5678, 6.5678 ] to equal [ 4.56789, 5.56789, 6.56789 ] up to 7 decimal places");
+
+      (function () {
+        assert.deepAlmostEqual([[4.5678, 5.5678, 6.5678]], [[4.56789, 5.56789, 6.56789], [1, 2, 3]], 3);
+      }).should.throw(chai.AssertionError, "expected [ [ 4.5678, 5.5678, 6.5678 ] ] to equal [ Array(2) ] up to 3 decimal places");
     });
 
     it('should round to nearest number if explicitely given 0 precision', function() {
