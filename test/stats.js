@@ -64,16 +64,16 @@ describe('Chai Stats', function () {
     });
 
     it('should work: .almost.eql // deepAlmostEqual for arrays', function() {
-      ([4.567, 5.567, 6.567]).should.almost.eql([4.5678, 5.5678, 6.5678], 3);
-      assert.deepAlmostEqual([4.567, 5.567, 6.567], [4.5678, 5.5678, 6.5678], 3);
+      ([4.5678, 5.5678, 6.5678]).should.almost.eql([4.56789, 5.56789, 6.56789], 3);
+      assert.deepAlmostEqual([4.5678, 5.5678, 6.5678], [4.56789, 5.56789, 6.56789], 3);
 
       (function () {
-        assert.deepAlmostEqual([4.567, 5.567, 6.567], [4.5678, 5.5678, 6.5678], 6);
-      }).should.throw(chai.AssertionError, "expected [ 4.567, 5.567, 6.567 ] to equal [ 4.5678, 5.5678, 6.5678 ] up to 6 decimal places");
+        assert.deepAlmostEqual([4.5678, 5.5678, 6.5678], [4.56789, 5.56789, 6.56789], 6);
+      }).should.throw(chai.AssertionError, "expected [ 4.5678, 5.5678, 6.5678 ] to equal [ 4.56789, 5.56789, 6.56789 ] up to 6 decimal places");
 
       (function () {
-        assert.deepAlmostEqual([4.567, 5.567, 6.567], [4.5678, 5.5678, 6.5678]);
-      }).should.throw(chai.AssertionError, "expected [ 4.567, 5.567, 6.567 ] to equal [ 4.5678, 5.5678, 6.5678 ] up to 7 decimal places");
+        assert.deepAlmostEqual([4.5678, 5.5678, 6.5678], [4.56789, 5.56789, 6.56789]);
+      }).should.throw(chai.AssertionError, "expected [ 4.5678, 5.5678, 6.5678 ] to equal [ 4.56789, 5.56789, 6.56789 ] up to 7 decimal places");
     });
 
     it('should round to nearest number if explicitely given 0 precision', function() {
