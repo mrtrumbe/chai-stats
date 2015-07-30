@@ -12,7 +12,7 @@ Chai spies are available on npm.
 
 #### Browser
 
-Include `chai-stats.js` after including `chai.js`. 
+Include `chai-stats.js` after including `chai.js`.
 
 ```xml
 <script src="chai-stats.js"></script>
@@ -32,7 +32,7 @@ var chai = require('chai')
 chai.use(chaiStats);
 
 var should = chai.should()
-  , expect = chai.expect; 
+  , expect = chai.expect;
 ```
 
 ## API Reference
@@ -57,6 +57,12 @@ expect({ pi: 3.1416 }).to.almost.eql({ pi: 3.14159 }, 3);
 assert.deepAlmostEqual({ pi: 3.1416 }, { pi: 3.14159 }, 3);
 ```
 
+Also works for arrays and nested arrays whose leaves are all numbers.
+
+```javascript
+expect([[4.5678, 5.5678]]).to.almost.eql([[4.56789, 5.56789]], 3);
+assert.deepAlmostEqual([[4.5678, 5.5678]], [[4.56789, 5.56789]], 3);
+```
 
 #### .sum
 
@@ -92,7 +98,7 @@ compared using chai's core assertions.
 expect([ 1, 2, 3, 4 ]).to.have.deviation.almost.equal(1.290, 2);
 ```
 
-## Tests 
+## Tests
 
 Tests are written using [mocha](http://github.com/visionmedia/mocha) in the BDD interface.
 Node tests can be executed using `make test`. Browser tests can be seen by opening `test/browser/index.html`.
