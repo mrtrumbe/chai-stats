@@ -66,6 +66,7 @@ describe('Chai Stats', function () {
     it('should work: .almost.eql // deepAlmostEqual for arrays', function() {
       ([4.5678, 5.5678, 6.5678]).should.almost.eql([4.56789, 5.56789, 6.56789], 3);
       assert.deepAlmostEqual([4.5678, 5.5678, 6.5678], [4.56789, 5.56789, 6.56789], 3);
+      assert.deepAlmostEqual([[4.5678, 5.5678, 6.5678]], [[4.56789, 5.56789, 6.56789]], 3);
 
       (function () {
         assert.deepAlmostEqual([4.5678, 5.5678, 6.5678], [4.56789, 5.56789, 6.56789], 6);
