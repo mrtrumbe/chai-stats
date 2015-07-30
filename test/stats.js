@@ -62,7 +62,20 @@ describe('Chai Stats', function () {
       }).should.throw(chai.AssertionError, "expected { pi: 3.1416 } to equal { pi: 3.14159 } up to 7 decimal places");
 
     });
-    
+
+    it('should work: .almost.eql // deepAlmostEqual for arrays', function() {
+      ([4.567, 5.567, 6.567]).should.almost.eql([4.5678, 5.5678, 6.5678], 3);
+      assert.deepAlmostEqual([4.567, 5.567, 6.567], [4.5678, 5.5678, 6.5678], 3);
+
+      (function () {
+        assert.deepAlmostEqual([4.567, 5.567, 6.567], [4.5678, 5.5678, 6.5678], 6);
+      }).should.throw(chai.AssertionError, "expected [ 4.567, 5.567, 6.567 ] to equal [ 4.5678, 5.5678, 6.5678 ] up to 6 decimal places");
+
+      (function () {
+        assert.deepAlmostEqual([4.567, 5.567, 6.567], [4.5678, 5.5678, 6.5678]);
+      }).should.throw(chai.AssertionError, "expected [ 4.567, 5.567, 6.567 ] to equal [ 4.5678, 5.5678, 6.5678 ] up to 7 decimal places");
+    });
+
     it('should round to nearest number if explicitely given 0 precision', function() {
       ({ pi: 3.1416 }).should.almost.eql({ pi: 3 }, 0);
       assert.deepAlmostEqual({pi: 3.1416}, {pi: 3}, 0);
